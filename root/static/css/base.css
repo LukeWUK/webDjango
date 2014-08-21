@@ -1,0 +1,64 @@
+
+html, body { margin: 0; padding: 0; border: 0; }
+
+body{
+    overflow: hidden;
+}
+
+#frameTop{
+    margin: 0;
+    width: auto;
+    height: 25px; /*Height of top frame div*/
+    overflow: hidden; /*Disable scrollbars*/
+    background-color: black;
+    color: white; /*Text color*/
+         }
+
+
+#categoryBar{
+    float:left;
+    margin:0;
+            }
+
+
+#userBar{
+    margin:0;
+    float:right;
+}
+
+
+#frameLeft{
+    height: 100%;
+    width: 160px; /*Width of left frame div*/
+    overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
+    background-color: whitesmoke;
+    color: black;
+    border-right-width: medium;
+    border-right-style: groove ;
+    box-sizing: border-box;
+            }
+
+#branding{
+        height:100px;
+}
+
+#contextNavigation{
+
+}
+
+
+
+#frameMain{
+overflow: auto;
+background: #fff;
+position: fixed;
+left: 160px; /*Set left value to WidthOfLeftFrameDiv*/
+top: 25px; /*Set top value to HeightOfTopFrameDiv*/
+    padding: 10px;
+}
+
+
+
+
+
+

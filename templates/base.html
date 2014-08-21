@@ -1,51 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    {% include "baseMeta.html" %}
     <title>{% block title %} Beesleys ERP {% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="\static\css\base.css">
-    <link rel="stylesheet" type="text/css" href="\static\css\tables.css">
+    {% include "cssSheets.html" %}
 </head>
 
 <body>
 
-    <div id="frameTop">
-        <div id="categoryBar"
-            <h3>Accounting Sales Purchasing Warehouse</h3>
+    <div id = "masterFrame">
+
+        <div id="frameTop">
+            <categoryBar>
+                {% include "categoryBar.html" %}
+            </categoryBar>
+
+            <userBar>
+                {% include "userBar.html" %}
+            </userBar>
         </div>
-        <div id="userBar"
-            <h3>Login</h3>
+
+        <div id="frameLeft">
+            <div id="branding">
+               {% include "branding.html" %}
+            </div>
+
+            <div id="contextNavigation">
+                {% include "contextNavigation.html" %}
+            </div>
         </div>
+
+        <div id="frameMain">
+            {% block content %} {% endblock %}
+        </div>
+
     </div>
-
-    <div id="frameLeft">
-
-        <div id="branding"
-           <p><img src="\static\media\logo.gif" border="0" alt="Beesleys Tools" title=" Beesleys Tools " width="149" height="76"></p>
-        </div>
-
-        <div id="contextNavigation"
-            <p>Navigation Bar</p>
-        </div>
-
-    </div>
-
-    <div id="frameMain">
-    <h1>MAIN WINDOWS</h1>
-    <p> Where content will go</p>
-    <p>
-    <table class="bordered">
-        <thead>
-        <tr>
-           <th>1</th>
-           <th>2</th>
-        </tr>
-        </thead>
-        <tr>
-           <td>3</td>
-           <td>4</td>
-        </tr>
-      </table>
-    </p>
-    </div>
-
-
+    {% include "bootstrapJS.html" %}
 </body>
+
+</html>

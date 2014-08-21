@@ -16,9 +16,9 @@ from django.shortcuts import render_to_response
 def products_list(request):
 
     products_list_return = models.Product.objects.all()
+    return render(request, "products\product_list.html", {"item_list": models.Product.objects.all()})
 
-    #return render_to_response('products\product_list.html', {'item_list': products_list_return})
-    return render_to_response('base.html', )
+    #return render_to_response('base.html', )
 
 
 def product(request, product_id):

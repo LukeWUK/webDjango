@@ -1,35 +1,38 @@
 
-html, body { margin: 0; padding: 0; border: 0; }
+html, body { margin: 0; padding: 0; border: 0; height: 100%;}
 
-body{
-    overflow: hidden;
+
+
+#masterFrame{
+    margin:0;
+    min-height: 100%;
 }
 
 #frameTop{
-    margin: 0;
-    width: auto;
     height: 25px; /*Height of top frame div*/
+    margin: 0;
     overflow: hidden; /*Disable scrollbars*/
     background-color: black;
     color: white; /*Text color*/
          }
 
+    #categoryBar{
+        float:left;
+        margin:0;
+                }
 
-#categoryBar{
-    float:left;
-    margin:0;
-            }
-
-
-#userBar{
-    margin:0;
-    float:right;
+    #userBar{
+        margin:0;
+        float:right;
 }
 
 
 #frameLeft{
-    height: 100%;
+    top:25px;  /*Set top value to HeightOfTopFrameDiv*/
     width: 160px; /*Width of left frame div*/
+
+    position: fixed;
+    bottom: 0;
     overflow: hidden; /*Disable scrollbars. Set to "scroll" to enable*/
     background-color: whitesmoke;
     color: black;
@@ -38,22 +41,26 @@ body{
     box-sizing: border-box;
             }
 
-#branding{
-        height:100px;
-}
 
-#contextNavigation{
+    #branding{
 
-}
+             }
+
+    #contextNavigation{
+
+                      }
 
 
 
 #frameMain{
-overflow: auto;
-background: #fff;
-position: fixed;
-left: 160px; /*Set left value to WidthOfLeftFrameDiv*/
-top: 25px; /*Set top value to HeightOfTopFrameDiv*/
+    left: 160px; /*Set left value to WidthOfLeftFrameDiv*/
+    top: 25px; /*Set top value to HeightOfTopFrameDiv*/
+    overflow: auto;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    right:0;
+
     padding: 10px;
 }
 

@@ -9,7 +9,7 @@ html, body { margin: 0; padding: 0; border: 0; height: 100%;}
 }
 
 #frameTop{
-    height: 25px; /*Height of top frame div*/
+    height: 35px; /*Height of top frame div*/
     margin: 0;
     overflow: hidden; /*Disable scrollbars*/
     background-color: black;
@@ -17,18 +17,34 @@ html, body { margin: 0; padding: 0; border: 0; height: 100%;}
          }
 
     #categoryBar{
+
         float:left;
         margin:0;
+        margin-top: 4px;
+        font-size: 150%;
                 }
 
     #userBar{
-        margin:0;
         float:right;
-}
+        font-size: 150%;
+    }
 
+    .btnCategoryBar{
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
+
+    }
+
+    .btnCategoryBarLi{
+        padding:0;
+        margin:0;
+        list-style-type: none;
+        display: inline;
+    }
 
 #frameLeft{
-    top:25px;  /*Set top value to HeightOfTopFrameDiv*/
+    top:35px;  /*Set top value to HeightOfTopFrameDiv*/
     width: 160px; /*Width of left frame div*/
 
     position: fixed;
@@ -54,7 +70,7 @@ html, body { margin: 0; padding: 0; border: 0; height: 100%;}
 
 #frameMain{
     left: 160px; /*Set left value to WidthOfLeftFrameDiv*/
-    top: 25px; /*Set top value to HeightOfTopFrameDiv*/
+    top: 35px; /*Set top value to HeightOfTopFrameDiv*/
     overflow: auto;
     background: #fff;
     position: fixed;

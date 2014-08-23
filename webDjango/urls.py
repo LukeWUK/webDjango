@@ -13,6 +13,10 @@ urlpatterns = patterns('',
     # url(r'^$', 'webDjango.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^products/', include('ProductManagement.urls')),
+    url(r'^sales/', include('Sales.urls')),
+    url(r'^contacts/', include('Contacts.urls')),
+
+
     (r'^time/$', current_datetime),
     url(r'^admin/', include(admin.site.urls)),
 

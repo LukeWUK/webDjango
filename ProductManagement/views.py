@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import TemplateView
-from django.template.loader import get_template
 from django.template import Context
 from django.http import HttpResponse
+from django_tables2 import RequestConfig
+from ProductManagement import tables
 from ProductManagement import models
 
 import datetime
@@ -15,10 +15,10 @@ from django.shortcuts import render_to_response
 
 def products_list(request):
 
-    products_list_return = models.Product.objects.all()
-    return render(request, "products\product_list.html", {"item_list": models.Product.objects.all()})
+    products_list_return = tables.ProductTable(models.Product.objects.all())
+    products_list_return.paginate(page=request.GET.get('page', 1), per_page=2)
+    return render(request, "products\product_list.html", {"item_list": products_list_return})
 
-    #return render_to_response('base.html', )
 
 
 def product(request, product_id):

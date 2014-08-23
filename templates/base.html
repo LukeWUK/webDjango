@@ -11,13 +11,13 @@
     <div id = "masterFrame">
 
         <div id="frameTop">
-            <categoryBar>
+            <div id="categoryBar">
                 {% include "categoryBar.html" %}
-            </categoryBar>
+            </div>
 
-            <userBar>
+            <div id="userBar">
                 {% include "userBar.html" %}
-            </userBar>
+            </div>
         </div>
 
         <div id="frameLeft">
@@ -26,12 +26,15 @@
             </div>
 
             <div id="contextNavigation">
-                {% include "contextNavigation.html" %}
+                {% block contextNav %} Error - No navigation context provided {% endblock %}
             </div>
         </div>
 
         <div id="frameMain">
             {% block content %} {% endblock %}
+
+
+
         </div>
 
     </div>

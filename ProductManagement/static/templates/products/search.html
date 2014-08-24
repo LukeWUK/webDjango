@@ -1,0 +1,45 @@
+{% extends "products/base_products.html" %}
+{% load render_table from django_tables2 %}
+
+{% block title %} Search{% if query %} Results{% endif %} {% endblock %}
+
+{% block content %}
+
+    <h1>Search</h1>
+
+    <form action="search" method="GET">
+    <label for="q">Search: </label>
+    <input type="text" name="q" value="{{ query|escape }}">
+    <input type="submit" value="Search">
+    </form>
+
+
+    {% if query %}
+        <h2>Results for "{{ query|escape }}":</h2>
+        {% if results %}
+
+            {% render_table results %}
+
+        {% else %}
+
+            <p>No products found</p>
+        {% endif %}
+
+    {% else %}
+         <h2>Results for All Products</h2>
+         {% if results %}
+
+            {% render_table results %}
+
+         {% else %}
+
+            <p>No products found</p>
+         {% endif %}
+
+
+
+    {% endif %}
+
+
+
+{% endblock %}

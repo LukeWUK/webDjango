@@ -33,21 +33,6 @@ def search(request):
         "query": query
     })
 
-#def search(request):
-#    query = request.GET.get('q', '')
-#    if query:
-#        qset = (
-#            Q(manufacturer__icontains=query) |
-#            Q(name__icontains=query)
-#        )
-#        results = models.Product.objects.filter(qset).distinct()
-#
-#    else:
-#        results = []
-#    return render_to_response("products/search.html", {
-#        "results": results,
-#        "query": query
-#    })
 
 
 def products_list(request):

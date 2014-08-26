@@ -1,13 +1,14 @@
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import Context
-from django.http import HttpResponse
+from django.http import response
 from django_tables2 import RequestConfig
 from ProductManagement import tables
 from ProductManagement import models
 from django.db.models import Q
 from django.shortcuts import render_to_response
-
+from ProductManagement import forms
 
 def search(request):
     query = request.GET.get('q', '')
@@ -43,7 +44,31 @@ def products_list(request):
     return render(request, "products\product_list.html", {"item_list": products_list_return})
 
 
-
 def product(request, product_id):
-    return HttpResponse("You're looking at product %s." % product_id)
+    try:
+        data = models.Product.objects.get(id=product_id)
+    except models.Product.DoesNotExist:
+        return HttpResponse("Product %s does not exist in database." % product_id)
+
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+
+        # create a form instance and populate it with data from the request:
+        form = forms.ProductForm(request.POST, instance=data)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            form.save()
+            # redirect to a new URL:
+            return response.HttpResponseRedirect('.')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+
+        form = forms.ProductForm(instance=data)
+
+        return render(request, 'products\product_detail.html', {'form': form})
+
+
+
 

@@ -24,7 +24,7 @@ def contacts_form(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
-        form = forms.ContactForm(request.POST)
+        form = forms.Contact_Form(request.POST)
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
@@ -34,6 +34,6 @@ def contacts_form(request):
 
     # if a GET (or any other method) we'll create a blank form
     else:
-        form = forms.ContactForm()
+        form = forms.Contact_Form()
 
     return render(request, 'contacts\contact_form.html', {'form': form})

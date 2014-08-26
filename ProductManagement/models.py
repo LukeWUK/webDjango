@@ -9,14 +9,15 @@ class Product(models.Model):
     category = models.ForeignKey('CatalogCategory',
                                  related_name='products')
     name = models.CharField(max_length=300)
-    slug = AutoSlugField(populate_from='name')
-    description = models.TextField()
+    slug = AutoSlugField(populate_from='name', unique_with='id')
+    description = models.TextField(blank=True)
     photo = models.ImageField(upload_to='product_photo',
                               blank=True)
     manufacturer = models.CharField(max_length=300,
                                     blank=True)
     price = models.DecimalField(max_digits=6,
                                 decimal_places=2)
+    #attributes = models.ManyToManyField('Attribute')
 
     def __unicode__(self):
         return u'%s: %s' % (self.manufacturer,

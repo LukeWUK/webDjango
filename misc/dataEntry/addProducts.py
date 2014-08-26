@@ -1,4 +1,3 @@
-__author__ = 'Luke'
 
 from ProductManagement import models
 
